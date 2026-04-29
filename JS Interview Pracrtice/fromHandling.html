@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Square Form</title>
+</head>
+
+<style>
+    body{
+        font-family:monospace;
+    }
+
+    button{
+        font-family:monospace;
+    }
+    
+
+</style>
+<body>
+
+<center>
+    <form id="form-handling">
+
+        <fieldset style="width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; margin-top: 150px;">
+            <legend>Login Form</legend>
+
+            <div style="text-align: center;">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email"><br><br>
+
+                <button type="submit">Submit</button>
+            </div>
+
+        </fieldset>
+
+    </form>
+    <br> 
+    <div id="res"></div>
+</center>
+
+<script>
+    const form = document.getElementById("form-handling");
+    const res = document.getElementById("res");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        res.innerHTML = `
+            <fieldset style="width: 250px; height: 150px; display:flex; justify-content:center; align-items:center;">
+                <legend>Result</legend>
+                <div style="text-align:center;">
+                    <p>Name: ${name}</p>
+                    <p>Email: ${email}</p>
+                </div>
+            </fieldset>
+        `;
+    });
+</script>
+
+</body>
+</html>

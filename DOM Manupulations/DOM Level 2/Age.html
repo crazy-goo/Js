@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Validation</title>
+</head>
+
+<style> 
+    body, button {
+        font-family: monospace;
+    }
+    #res{
+            margin-top:50px;
+            /* font-size:18px; */
+    }
+    fieldset{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+
+</style>
+<body>
+    <center>
+         <fieldset style="width: 400px; height: 300px; display: flex; justify-content: center; align-items: center; margin-top: 150px;">
+            <legend>Validation Form</legend>
+
+            <div style="text-align: center;">
+               <label for="age">Enter Age :</label>
+               <br>
+               <input id="age-input" type="text"> <br><br>
+               <button id="check-btn" onclick="checkAge()">Check Age</button>
+            </div>
+
+            <div id="res"></div>
+        </fieldset>
+        
+    </center>
+</body>
+
+<script>
+    const ageInput = document.getElementById("age-input");
+    const btnCheck = document.getElementById("check-btn")
+    const res = document.getElementById("res");
+
+    
+    function checkAge() {
+
+        const age = ageInput.value.trim();
+        // console.log(age);
+        
+        if(age === "" || age === null || isNaN(age)){
+            res.textContent = "Please enter the age!"
+            res.style.color = "red"
+            return;
+        }else if(age >= 18 && age <= 80){
+            res.textContent = "Yeh! bat bete sachi age!"
+            res.style.color = "green";
+        }else{
+            res.textContent = "Age range is (18-80) bete!"
+            res.style.color = "red"
+        }
+    }
+    
+    
+</script>
+</html>

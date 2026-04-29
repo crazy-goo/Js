@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click And Change Text</title>
+</head>
+
+<style>
+     h1 , h4{
+        
+    }
+    body {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+        background-color: black;
+         color: white;
+    }
+    #item-select{
+        color: rgb(23, 185, 23);
+    }
+    p{
+        font-size: 20px;
+    }
+
+    div{
+        padding: 10px;
+        border: 1px solid rgb(23, 185, 23) ;
+    }
+    li {
+        margin: 10px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>"DOM Manupulation!"</h1>
+
+    <h4>"This bout click and make it favourite!"</h4>
+
+    <div>
+        <ul id="list-items">
+            <li>Mac Air M2</li>
+            <li>Poco X3</li>
+            <li>Tabel Lamp</li>
+            <li>Water Bootle</li>
+        </ul>
+    </div>
+    <p>Favourite Items : <span id="item-select"> None</span></p>
+
+    
+</body>
+
+<script>
+    const listItems =  document.getElementById('list-items');
+    const changeItem = document.getElementById('item-select');
+
+
+    listItems.addEventListener('click' , (e) => {
+        if(e.target.tagName === 'LI'){
+            changeItem.textContent = e.target.textContent;
+        }
+    })
+</script>
+</html>

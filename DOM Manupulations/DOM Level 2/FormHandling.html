@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Outfit';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        fieldset {
+            width: 400px;
+            padding: 20px;
+        }
+
+        .form-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* keep text left */
+            width: fit-content;
+            margin: auto;
+        }
+
+        label {
+            margin-bottom: 4px;
+        }
+
+        input {
+            font-family: 'Outfit';
+            width: 240px;
+            padding: 6px;
+            margin-bottom: 12px;
+        }
+
+        .btn-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            align-items: center;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            font-family: 'Outfit';
+        }
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #res {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>Validation Form</legend>
+
+        <div class="form-box">
+
+            <label>Name :</label>
+            <input id="input-name" type="text" placeholder="Enter Name">
+
+            <label>Email :</label>
+            <input id="input-email" type="text" placeholder="Enter Email">
+
+            <label>Password :</label>
+            <input id="input-password" type="password" placeholder="Enter Password">
+
+            <div class="btn-box">
+                <button onclick="fromValidation()">Submit</button>
+            </div>
+
+        </div>
+
+        <div id="res">
+
+        </div>
+
+    </fieldset>
+
+</body>
+
+<script>
+    const InputName = document.getElementById("input-name")
+    const InputEmail = document.getElementById("input-email")
+    const InputPassword = document.getElementById("input-password")
+    const res = document.getElementById("res")
+
+    function fromValidation(){
+
+        const name = InputName.value.trim();
+        const email = InputEmail.value.trim();
+        const password = InputPassword.value.trim();
+
+        if(name === ""){
+            res.innerText = "Name is Required !";
+            res.style.color = "red";
+        }
+        else if(email === "" || !email.includes("@")){
+            res.innerText = "Invalid Email Format !";
+            res.style.color = "red";
+        }
+        else if(password.length < 6){
+            res.innerText = "Password must be at least 6 characters !";
+            res.style.color = "red";
+        }
+        else{
+            res.innerText = "Form Submitted Successfully !";
+            res.style.color = "green";
+        }
+    }
+</script>
+
+</html>

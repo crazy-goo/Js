@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text</title>
+</head>
+<style>
+    h1, h3, button {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+    }
+    button{
+        padding: 8px;
+    }
+</style>
+<body>
+    <h1>"DOM Manupulation!"</h1>
+
+    <h3>"Hi i'm Learning DOM Manupulation"</h3>
+    <button id="change-txt">Change Text</button>
+</body>
+
+<script>
+        const heading = document.querySelector("h3");
+        const btn = document.getElementById("change-txt");
+        
+        btn.addEventListener('click', () => {
+            const newText = heading.textContent = "''Happy that u change the text Successfully!'";
+            heading.style.color = "green";
+        })
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Center Input</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        
+    }
+
+   #container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #top {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+
+    button{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+       
+    }
+   h2{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+        color: white;
+        font-size: 30px;
+        margin-left: -25px;
+    }
+    input::placeholder {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+    }
+    .count-container{
+        border: 2px solid white;
+    }
+
+    .count-container{
+        border: 2px solid white;
+        width: 270px;
+        height: 120px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #count-value{
+         font-family: monospace;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <h2 style="color: white;"> " Build  <span style="color: aqua;">Counter App</span>  ! "</h2>
+    <div class="count-container">
+        <h2>COUNT : <span id="count-value">0</span></h2> 
+    </div>
+    
+    <div id="top">
+        <button id="inc-btn">Increment</button>
+        <button id="dec-btn">Drecrement</button>
+        <button id="res-btn">Reset</button>
+    </div>
+</div>
+
+</body>
+<script>
+    const countValue = document.getElementById('count-value');
+    const incrementBtn = document.getElementById('inc-btn')
+    const decrementBtn = document.getElementById('dec-btn')
+    const resetBtn = document.getElementById('res-btn')
+
+    let cnt = 0;
+    incrementBtn.addEventListener('click' , () => {
+        cnt++;
+        countValue.textContent = cnt;
+        countValue.style.color = 'aqua';
+    })
+
+    decrementBtn.addEventListener('click' , () => {
+        cnt--;
+        countValue.textContent = cnt;
+        countValue.style.color = 'aqua';
+    })
+
+    resetBtn.addEventListener('click' , () => {
+        cnt = 0;
+        countValue.textContent = cnt
+        countValue.style.color = 'aqua';
+    })
+
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+        body {
+            font-family: "Outfit", sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            padding: 100px;
+            padding-bottom: 10px;
+            border: 2px solid;
+            align-items: center;
+            gap: 10px;
+            border-radius: 10px;
+        }
+
+        .sub-main {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        div button {
+            font-family: "Outfit", sans-serif;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            font-family: "Outfit", sans-serif;
+        }
+
+        input::-webkit-input-placeholder {
+            font-family: "Outfit", sans-serif;
+        }
+
+        input:-ms-input-placeholder {
+            font-family: "Outfit", sans-serif;
+        }
+
+        input {
+            padding: 5px;
+            width: 220px;
+        }
+
+        footer {
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="sub-main">
+            <label>Email : </label>
+            <input type="text" id="emailInput" placeholder="Enter Email">
+
+            <label>Password : </label>
+            <input type="password" id="passwordInput" placeholder="Enter Password">
+        </div>
+
+        <div>
+            <button id="submit-btn">Submit</button>
+        </div>
+
+        <p id="email-response"></p>
+
+        <footer>
+            <p>Created by - @debu21🐉</p>
+        </footer>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById("emailInput");
+        const passwordInput = document.getElementById("passwordInput");
+        const btn = document.getElementById("submit-btn");
+        const emailRes = document.getElementById("email-response");
+
+        btn.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{6,}$/;
+
+            if (email === "") {
+                emailRes.textContent = "Email cannot be empty!";
+                emailRes.style.fontFamily = "monospace";
+                emailRes.style.color = "red";
+            }
+            else if (!emailPattern.test(email)) {
+                emailRes.textContent = "Invalid Email Format!";
+                emailRes.style.fontFamily = "monospace";
+                emailRes.style.color = "red";
+            }
+            else if (password === "") {
+                emailRes.textContent = "Password cannot be empty!";
+                emailRes.style.fontFamily = "monospace";
+                emailRes.style.color = "red";
+            }
+            else if (!passwordPattern.test(password)) {
+                emailRes.textContent = "Weak Password!";
+                emailRes.style.fontFamily = "monospace";
+                emailRes.style.color = "red";
+            }
+            else {
+                emailRes.textContent = "Valid Email & Password!";
+                emailRes.style.fontFamily = "monospace";
+                emailRes.style.color = "rgb(16,194,16)";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

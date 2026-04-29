@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Center Input</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        
+    }
+
+   #container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #top {
+        display: flex;
+        gap: 10px;
+    }
+
+    input {
+        flex: 1;
+    }
+
+    input, button{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+        padding: 10px;
+        font-size: 16px;
+    }
+    h2, ul{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+    }
+    input::placeholder {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+         sans-serif;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <h2 style="color: white;"> " Add To <span style="color: aqua;">Cart Features</span>  ! "</h2>
+    <div id="top">
+        <input type="text" id="input" placeholder="Enter the Items...">
+        <button id="add-Btn" onclick="addItems()">Add Items</button>
+    </div>
+    <ul id="list-items"></ul>
+</div>
+
+</body>
+<script>
+     const addItems = () =>{
+        const inputText = document.getElementById('input')
+        const listItems = document.getElementById('list-items')
+
+        if(inputText.value.trim() === ""){
+            alert("Enter item please!");
+            return;
+        } 
+
+        const newItem = document.createElement('li')
+        newItem.textContent = inputText.value;
+        newItem.style.color = 'white'
+        listItems.appendChild(newItem)
+        inputText.value = ''
+     }
+</script>
+</html>
