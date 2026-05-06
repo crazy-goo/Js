@@ -1,0 +1,4 @@
+JavaScript is Single Threaded Synchronous Programming Language. Explained -----
+* It means that JavaScript can only execute one task at a time and it executes tasks in a sequential manner. 
+* When a task is being executed, other tasks have to wait until the current task is completed before they can be executed. 
+* 
